@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorBottomNavigationPrimary">#3F51B5</color>
+    <color name="colorBottomNavigationPrimaryDark">#303F9F</color>
+    <color name="colorBottomNavigationAccent">#FF4081</color>
+    <color name="colorBottomNavigationInactive">#747474</color>
+    <color name="colorBottomNavigationActiveColored">#FFFFFF</color>
+    <color name="colorBottomNavigationInactiveColored">#50FFFFFF</color>
+    <color name="colorBottomNavigationNotification">#F63D2B</color>
+
+
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#4CAF50</color>
+    <color name="colorPrimaryLight">#BBDEFB</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#B6B6B6</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+
+    <!--底部导航按钮的颜色-->
+    <color name="color_tab_1">#455C65</color>
+    <color name="color_tab_2">#00886A</color>
+    <color name="color_tab_3">#8B6B62</color>
+    <color name="color_tab_4">#6C4A42</color>
+    <color name="color_tab_5">#F63D2B</color>
+
+
+    <color name="color_tv_1">@android:color/black</color>
+    <color name="color_tv_2">@android:color/darker_gray</color>
+    <color name="color_tv_3">@android:color/holo_green_dark</color>
+
+    <color name="colorScoreBackground">#B88E67</color>
+    <color name="colorArtistBackground">#7F8084</color>
+
+    <color name="tabTextColor">#7F8084</color>
+    <color name="tabSelectedTextColor">#7F8084</color>
+    <color name="tabIndicatorColor">#FF4081</color>
+
+    <color name="color_line">#dddddd</color>
+    <color name="color_video_divider_item">#3F51B5</color>
+
+    <color name="TextColorWhite">#FFFFFFFF</color>
+    <color name="home_banner_pager_inactive">#2FFFFFFF</color>
+    <color name="t3">#bd9d62</color>
+
+    <color name="color_gray_9">#333333</color>
+    <color name="color_gray_7">#666666</color>
+    <color name="color_gray_5">#8c8c8c</color>
+    <color name="color_gray_3">#999999</color>
+    <color name="color_gray_2">#909fa8</color>
+    <color name="color_gray_1">#e2e2e2</color>
+    <color name="bg_f2">#f2f2f2</color>
+    <color name="bg_b9">#b9b9b9</color>
+    <color name="bg_popupwindow_sort">#aa000000</color>
+    <color name="cl_398dca">#398dca</color>
+
+    <color name="colorTextHint">#CCCCCC</color>
+
+    <!-- for tuxviewer -->
+    <color name="darkest">#000000</color>
+    <color name="dark">#3a3a3a</color>
+    <color name="medium">#6a6a6a</color>
+    <color name="light">#aaaaaa</color>
+    <color name="lightest">#ffffff</color>
+    <color name="translucent_darkest">#88000000</color>
+    <color name="translucent_dark">#883a3a3a</color>
+    <color name="translucent_medium">#886a6a6a</color>
+    <color name="translucent_light">#88aaaaaa</color>
+    <color name="translucent_lightest">#88ffffff</color>
+
+    <color name="player_gray">#ff888888</color>
+    <color name="play_bule">#8829abe2</color>
+    <color name="cl_me">#ff29aae3</color>
+    <color name="cl_login">#2097f3</color>
+    <color name="cl_msg_box">#2899f0</color>
+    <color name="cl_exit">#f5515f</color>
+    <color name="cl_msg_red">#e97172</color>
+
+    <color name="toolbar_spilt_line">#CDCDCD</color>
+    <color name="toolbar_btn_select">#D9D9D9</color>
+    <color name="toolbar_btn_nomal">@color/colorWhite</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="spilt_line">#CFCFCF</color>
+    <color name="btn_send_textcolor">@color/white</color>
+    <color name="btn_select">#888888</color>
+    <color name="common_bg">@color/white</color>
+    <color name="full_screen">#00ffffff</color>
+    <color name="full_screen_">#00000000</color>
+    <color name="bg_floder_press">#bdbdbd</color>
+
+    <!-- 底色 -->
+    <color name="background">#fff3f3f3</color>
+    <color name="divider_line">#ffeaeaea</color>
+    <color name="gray">#FF808080</color>
+    <color name="text_red">#ffFF5D4C</color>
+
+    <color name="transparent">@android:color/transparent</color>
+
+</resources>

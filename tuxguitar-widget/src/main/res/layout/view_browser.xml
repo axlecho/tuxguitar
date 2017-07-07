@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.herac.tuxguitar.android.view.browser.TGBrowserView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- Header -->
+
+    <RelativeLayout
+        android:id="@+id/browser_toolbar"
+        style="@style/BrowserCollectionsPanel"
+        android:layout_alignParentTop="true"
+        android:gravity="fill_horizontal|center_vertical" >
+
+        <Spinner
+            android:id="@+id/browser_collections"
+            style="@style/BrowserCollectionsSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:gravity="fill_horizontal|center_vertical" />
+    </RelativeLayout>
+
+    <!-- Footer -->
+
+    <RelativeLayout
+        android:id="@+id/browser_save_panel"
+        style="@style/BrowserSavePanel"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <EditText
+            android:id="@+id/browser_save_element_name"
+            style="@style/BrowserSaveEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/browser_save_format"
+            android:gravity="fill_horizontal|center_vertical"
+            android:inputType="text"
+            android:imeOptions="actionDone" />
+
+        <Spinner
+            android:id="@+id/browser_save_format"
+            style="@style/BrowserSaveSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/browser_save_button"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/browser_save_button"
+            style="@style/BrowserSaveImageButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/browser_save_label"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <!-- File List -->
+
+    <RelativeLayout
+        android:id="@+id/browser_elements_panel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/browser_save_panel"
+        android:layout_below="@id/browser_toolbar"
+        android:gravity="fill" >
+
+        <ListView
+            android:id="@+id/browser_elements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</org.herac.tuxguitar.android.view.browser.TGBrowserView>

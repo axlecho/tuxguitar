@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">吉他社</string>
+    <string name="action_countdown">倒计时</string>
+    <string name="action_settings">设置</string>
+    <string name="action_turning">音调</string>
+    <string name="tablature">吉他谱</string>
+    <string name="score">曲谱</string>
+    <string name="video">视频</string>
+    <string name="qiupu">求谱</string>
+    <string name="listen">试听</string>
+    <string name="info">简介</string>
+
+    <string name="hottest">热门</string>
+    <string name="newest">最新</string>
+
+    <string name="history">最近练习</string>
+
+    <string name="tab_1">首页</string>
+    <string name="tab_2">曲谱</string>
+    <string name="tab_3">社区</string>
+    <string name="tab_4">视频</string>
+    <string name="tab_5">我的</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="video_pingce">评测视频</string>
+    <string name="video_jiaoxue">教学视频</string>
+    <string name="video_yanzou">演奏视频</string>
+
+    <string name="label_request_sms_code_after">%ds后重新获取</string>
+    <string name="label_request_sms_code">获取验证码</string>
+    <string name="thread_model_name">所属版块:%s</string>
+
+    <string name="btn_text_send">发送</string>
+    <string name="btn_text_speak">按住 说话</string>
+
+    <string name="say_sth">说点什么吧~</string>
+    <string name="send_message">发送</string>
+    <string name="register">注&#160;&#160;&#160;册</string>
+    <string name="login">登&#160;&#160;&#160;录</string>
+    <string name="ensure">确&#160;&#160;&#160;认</string>
+
+
+    <string name="photos_num">%1$d张</string>
+    <string name="msg_no_camera">没找到摄像头</string>
+    <string name="msg_maxi_capacity">已达到照片选择上限</string>
+    <string name="commit">确定</string>
+    <string name="commit_num">确定(%1$d/%2$d)</string>
+
+    <!-- =================================================================== -->
+    <!-- ========================= Tuxguitar ================================== -->
+    <!-- =================================================================== -->
+
+    <!-- =================================================================== -->
+    <!-- ========================= GLOBAL ================================== -->
+    <!-- =================================================================== -->
+
+    <string name="global_error_message">未知错误</string>
+    <string name="global_exit_confirm_message">确定要退出吗?</string>
+
+    <string name="global_button_ok">确定</string>
+    <string name="global_button_cancel">取消</string>
+    <string name="global_button_clean">Clean</string>
+
+    <string name="global_spinner_select_option">-- 选择 --</string>
+
+    <!-- =================================================================== -->
+    <!-- ========================== TOOLBAR =================================== -->
+    <!-- =================================================================== -->
+    <string name="toolbar_playrate_dlg_title">速率</string>
+    <string name="toolbar_tracks_dlg_title">音轨</string>
+    <string name="toolbar_turning_dlg_title">调弦音调</string>
+
+    <string name="toolbar_view">设置</string>
+    <string name="toolbar_view_layout_show_score">显示五线谱</string>
+    <string name="toolbar_view_layout_show_chord_name">显示和弦名称</string>
+    <string name="toolbar_view_layout_show_chord_diagram">显示和弦图</string>
+
+    <string name="toolbar_countdown">倒计时</string>
+    <string name="toolbar_countdown_enable">启用倒计时</string>
+
+    <string name="menu_switch_orientation">切换屏幕方向</string>
+
+    <string name="toolbar_fullscreen">切换全屏</string>
+</resources>

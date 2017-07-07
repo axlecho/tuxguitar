@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/measure_add_dlg_count_label"
+            style="@style/TextViewLabel"
+
+            android:text="@string/measure_add_dlg_count_label" />
+
+        <Spinner android:id="@+id/measure_add_dlg_count_value" />
+
+
+        <RadioGroup android:id="@+id/measure_add_dlg_options_group">
+
+            <RadioButton
+                android:id="@+id/measure_add_dlg_options_before_position"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/measure_add_dlg_options_before_position" />
+
+            <RadioButton
+                android:id="@+id/measure_add_dlg_options_after_position"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/measure_add_dlg_options_after_position" />
+
+            <RadioButton
+                android:id="@+id/measure_add_dlg_options_at_end"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/measure_add_dlg_options_at_end" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+</ScrollView>

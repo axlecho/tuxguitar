@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextImageView">
+        <attr name="src" format="reference" />
+        <attr name="src_size" format="dimension" />
+        <attr name="src_color" format="color"/>
+    </declare-styleable>
+</resources>

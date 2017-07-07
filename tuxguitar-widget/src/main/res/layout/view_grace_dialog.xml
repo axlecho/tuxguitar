@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/grace_dlg_fret_label"
+            style="@style/TextViewLabel"
+            android:text="@string/grace_dlg_fret_label" />
+
+        <Spinner android:id="@+id/grace_dlg_fret_value" />
+
+        <CheckBox
+            android:id="@+id/grace_dlg_dead_note_option"
+            android:text="@string/grace_dlg_dead_note_label" />
+
+
+        <TextView
+            android:id="@+id/grace_dlg_position_label"
+            style="@style/TextViewLabel"
+            android:text="@string/grace_dlg_position_label" />
+
+        <RadioGroup android:id="@+id/grace_dlg_position_group">
+
+            <RadioButton
+                android:id="@+id/grace_dlg_position_before_beat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grace_dlg_position_before_beat" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_position_on_beat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grace_dlg_position_on_beat" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/grace_dlg_duration_label"
+            style="@style/TextViewLabel"
+            android:text="@string/grace_dlg_duration_label" />
+
+        <RadioGroup android:id="@+id/grace_dlg_duration_group">
+
+            <RadioButton
+                android:id="@+id/grace_dlg_duration_16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/duration_16"
+                android:text="@string/grace_dlg_duration_16" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_duration_32"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/duration_32"
+                android:text="@string/grace_dlg_duration_32" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_duration_64"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/duration_64"
+                android:text="@string/grace_dlg_duration_64" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/grace_dlg_dynamic_label"
+            style="@style/TextViewLabel"
+            android:text="@string/grace_dlg_dynamic_label" />
+
+        <RadioGroup android:id="@+id/grace_dlg_dynamic_group">
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_ppp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_ppp"
+                android:text="@string/grace_dlg_dynamic_ppp" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_pp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_pp"
+                android:text="@string/grace_dlg_dynamic_pp" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_p"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_p"
+                android:text="@string/grace_dlg_dynamic_p" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_mp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_mp"
+                android:text="@string/grace_dlg_dynamic_mp" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_mf"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_mf"
+                android:text="@string/grace_dlg_dynamic_mf" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_f"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_f"
+                android:text="@string/grace_dlg_dynamic_f" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_ff"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_ff"
+                android:text="@string/grace_dlg_dynamic_ff" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_dynamic_fff"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/dynamic_fff"
+                android:text="@string/grace_dlg_dynamic_fff" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/grace_dlg_transition_label"
+            style="@style/TextViewLabel"
+            android:text="@string/grace_dlg_transition_label" />
+
+        <RadioGroup android:id="@+id/grace_dlg_transition_group">
+
+            <RadioButton
+                android:id="@+id/grace_dlg_transition_none"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grace_dlg_transition_none" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_transition_bend"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grace_dlg_transition_bend" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_transition_slide"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grace_dlg_transition_slide" />
+
+            <RadioButton
+                android:id="@+id/grace_dlg_transition_hammer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grace_dlg_transition_hammer" />
+        </RadioGroup>
+    </LinearLayout>
+
+</ScrollView>

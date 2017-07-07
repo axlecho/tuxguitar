@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/leftView"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/btn_search"
+        android:background="@drawable/circlr_rectangle_bg_"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_drag"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_arrow_drop_down_white_48px"/>
+        <EditText
+            android:id="@+id/inputView"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_drag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:ellipsize="end"
+            android:hint="请输入关键字"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#C3C3C3"
+            android:textSize="16dp"/>
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_alignParentRight="true"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_width="50dp"
+        android:paddingBottom="5dp"
+        android:drawablePadding="5dp"
+        android:background="@color/transparent"
+        android:text="搜索"
+        android:textSize="16dp"/>
+
+</RelativeLayout>

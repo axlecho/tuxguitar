@@ -1,0 +1,1 @@
+include ':app', ':tuxguitar-lib', ':tuxguitar-gm-utils', ':tuxguitar-gtp', ':tuxguitar-gpx', ':tuxguitar-ptb', ':tuxguitar-editor-utils', ':tuxguitar-android-gervill', ':tuxguitar-widget'

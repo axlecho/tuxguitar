@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.herac.tuxguitar.android.TGActivity">
+    <item
+        android:id="@+id/menu_switch_orientation"
+        android:icon="@drawable/ic_screen_rotation_white_24dp"
+        android:title="@string/menu_switch_orientation"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.10" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/tuxguitar-android-gervill" />
+            <option value="$PROJECT_DIR$/tuxguitar-editor-utils" />
+            <option value="$PROJECT_DIR$/tuxguitar-gm-utils" />
+            <option value="$PROJECT_DIR$/tuxguitar-gpx" />
+            <option value="$PROJECT_DIR$/tuxguitar-gtp" />
+            <option value="$PROJECT_DIR$/tuxguitar-lib" />
+            <option value="$PROJECT_DIR$/tuxguitar-ptb" />
+            <option value="$PROJECT_DIR$/tuxguitar-widget" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
