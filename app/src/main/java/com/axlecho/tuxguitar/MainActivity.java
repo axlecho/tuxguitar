@@ -1,13 +1,12 @@
 package com.axlecho.tuxguitar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import org.herac.tuxguitar.android.activity.TGActivity;
@@ -53,11 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static void verifyStoragePermissions(AppCompatActivity activity) {
         try {
-            //检测是否有写的权限
             int permission = ActivityCompat.checkSelfPermission(activity,
                     "android.permission.READ_EXTERNAL_STORAGE");
             if (permission != PackageManager.PERMISSION_GRANTED) {
-                // 没有写的权限，去申请写的权限，会弹出对话框
                 ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
             }
         } catch (Exception e) {
