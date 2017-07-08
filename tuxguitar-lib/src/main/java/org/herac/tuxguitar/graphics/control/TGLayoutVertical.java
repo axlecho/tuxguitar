@@ -6,6 +6,8 @@
  */
 package org.herac.tuxguitar.graphics.control;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -114,9 +116,8 @@ public class TGLayoutVertical extends TGLayout{
 		float width = this.marginLeft;
 		
 		//verifico si esta en el area de cliente
-		// boolean isAtY = (posY + ts.getSize() > clientArea.getY() && posY < clientArea.getY() + clientArea.getHeight() + (getScale() * 80f));
-		boolean isAtY = true;
-		
+        boolean isAtY = (posY + ts.getSize() > clientArea.getY() && posY < clientArea.getY() + clientArea.getHeight() + (getScale() * 80f));
+
 		float defaultMeasureSpacing = 0;
 		if( line.fullLine ){
 			float diff = ( this.maximumWidth - line.tempWith);
@@ -126,11 +127,12 @@ public class TGLayoutVertical extends TGLayout{
 		}
 		
 		float measureSpacing = defaultMeasureSpacing;
-		
+
 		for(int i = 0;i < line.measures.size();i ++){
 			int index = ((Integer)line.measures.get(i)).intValue();
 			TGMeasureImpl currMeasure = (TGMeasureImpl)track.getMeasure(index);
-			
+
+            Log.d("axlecho","measures " + index);
 			//asigno la posicion dentro del compas
 			currMeasure.setPosX(posX);
 			currMeasure.setPosY(posY);
