@@ -6,8 +6,6 @@
  */
 package org.herac.tuxguitar.graphics.control;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -132,12 +130,11 @@ public class TGLayoutVertical extends TGLayout{
 			int index = ((Integer)line.measures.get(i)).intValue();
 			TGMeasureImpl currMeasure = (TGMeasureImpl)track.getMeasure(index);
 
-            Log.d("axlecho","measures " + index);
 			//asigno la posicion dentro del compas
 			currMeasure.setPosX(posX);
 			currMeasure.setPosY(posY);
 			currMeasure.setTs(ts);
-			
+
 			((TGLyricImpl)track.getLyrics()).setCurrentMeasure(currMeasure);
 			
 			currMeasure.setFirstOfLine(i == 0);
