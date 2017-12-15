@@ -39,7 +39,7 @@ public class TGPreferencesManager {
 
     public boolean isCountDownEnable(Context context) {
         SharedPreferences sp = context.getSharedPreferences(perference, Activity.MODE_PRIVATE);
-        boolean enable = sp.getBoolean("count_down_enable", true);
+        boolean enable = sp.getBoolean("count_down_enable", false);
         Log.d(TAG, "[setCountDownEnable] enable " + enable);
         return enable;
     }
