@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tuxguitar.iml" filepath="$PROJECT_DIR$/Tuxguitar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tuxguitar.iml" filepath="$PROJECT_DIR$/tuxguitar.iml" />
       <module fileurl="file://$PROJECT_DIR$/tuxguitar-android-gervill/tuxguitar-android-gervill.iml" filepath="$PROJECT_DIR$/tuxguitar-android-gervill/tuxguitar-android-gervill.iml" />
       <module fileurl="file://$PROJECT_DIR$/tuxguitar-editor-utils/tuxguitar-editor-utils.iml" filepath="$PROJECT_DIR$/tuxguitar-editor-utils/tuxguitar-editor-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/tuxguitar-gm-utils/tuxguitar-gm-utils.iml" filepath="$PROJECT_DIR$/tuxguitar-gm-utils/tuxguitar-gm-utils.iml" />
