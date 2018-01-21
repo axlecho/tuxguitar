@@ -34,11 +34,11 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
 
-    implementation  project(path: ':tuxguitar-lib', configuration: 'default')
-    implementation  project(path: ':tuxguitar-ptb', configuration: 'default')
-    implementation  project(path:':tuxguitar-gtp', configuration: 'default')
-    implementation  project(path:':tuxguitar-gpx', configuration: 'default')
-    implementation  project(path:':tuxguitar-gm-utils', configuration: 'default')
-    implementation  project(path:':tuxguitar-editor-utils', configuration: 'default')
-    implementation  project(path:':tuxguitar-android-gervill', configuration: 'default')
+    api  project(path: ':tuxguitar-lib', configuration: 'default')
+    api  project(path: ':tuxguitar-ptb', configuration: 'default')
+    api  project(path:':tuxguitar-gtp', configuration: 'default')
+    api  project(path:':tuxguitar-gpx', configuration: 'default')
+    api  project(path:':tuxguitar-gm-utils', configuration: 'default')
+    api  project(path:':tuxguitar-editor-utils', configuration: 'default')
+    api  project(path:':tuxguitar-android-gervill', configuration: 'default')
 }
