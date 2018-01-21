@@ -3,16 +3,17 @@ package org.herac.tuxguitar.android.toolbar;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
-import android.widget.TextView;
 
 import org.herac.tuxguitar.android.R;
 
-public class TextImageView extends TextView implements ViewTreeObserver.OnGlobalLayoutListener {
+public class TextImageView extends AppCompatTextView implements ViewTreeObserver.OnGlobalLayoutListener {
     private int icon = -1;
     private int icon_size = -1;
     private int icon_color = -1;
+
     public TextImageView(Context context) {
         super(context);
     }
@@ -31,7 +32,7 @@ public class TextImageView extends TextView implements ViewTreeObserver.OnGlobal
         TypedArray t = getContext().obtainStyledAttributes(attrs, R.styleable.TextImageView);
         this.icon = t.getResourceId(R.styleable.TextImageView_src, R.drawable.ic_home_white_48dp);
         this.icon_size = t.getDimensionPixelSize(R.styleable.TextImageView_src_size, -1);
-        this.icon_color = t.getResourceId(R.styleable.TextImageView_src_color,R.color.tab_home_selector);
+        this.icon_color = t.getResourceId(R.styleable.TextImageView_src_color, R.color.tab_home_selector);
         t.recycle();
     }
 
@@ -58,6 +59,7 @@ public class TextImageView extends TextView implements ViewTreeObserver.OnGlobal
             drawable.setBounds(0, 0, icon_size, icon_size);
             this.setCompoundDrawables(null, drawable, null, null);
         }
+        this.getViewTreeObserver().removeGlobalOnLayoutListener(this);
     }
 
 }
