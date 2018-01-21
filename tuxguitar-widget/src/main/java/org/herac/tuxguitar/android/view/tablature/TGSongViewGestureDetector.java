@@ -31,6 +31,10 @@ public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureLi
     }
 
     public boolean processTouchEvent(MotionEvent event) {
+        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+            scroller.abortAnimation();
+        }
+
         this.songViewScaleGestureDetector.processTouchEvent(event);
         if (!this.songViewScaleGestureDetector.isInProgress()) {
             this.gestureDetector.onTouchEvent(event);
