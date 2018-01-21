@@ -13,6 +13,9 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -28,14 +31,14 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:25.3.1'
 
-    compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
 
-    compile project(':tuxguitar-lib')
-    compile project(':tuxguitar-ptb')
-    compile project(':tuxguitar-gtp')
-    compile project(':tuxguitar-gpx')
-    compile project(':tuxguitar-gm-utils')
-    compile project(':tuxguitar-editor-utils')
-    compile project(':tuxguitar-android-gervill')
+    implementation  project(path: ':tuxguitar-lib', configuration: 'default')
+    implementation  project(path: ':tuxguitar-ptb', configuration: 'default')
+    implementation  project(path:':tuxguitar-gtp', configuration: 'default')
+    implementation  project(path:':tuxguitar-gpx', configuration: 'default')
+    implementation  project(path:':tuxguitar-gm-utils', configuration: 'default')
+    implementation  project(path:':tuxguitar-editor-utils', configuration: 'default')
+    implementation  project(path:':tuxguitar-android-gervill', configuration: 'default')
 }

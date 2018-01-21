@@ -13,7 +13,9 @@ android {
         versionCode 1
         versionName "0.0.1"
     }
-
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -24,8 +26,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':tuxguitar-gm-utils')
-    compile project(':tuxguitar-lib')
+    implementation  project(path:':tuxguitar-gm-utils', configuration: 'default')
+    implementation  project(path: ':tuxguitar-lib', configuration: 'default')
     testCompile 'junit:junit:4.12'
 }
 
