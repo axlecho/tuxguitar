@@ -25,9 +25,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile  project(path:':tuxguitar-gm-utils')
-    compile  project(path: ':tuxguitar-lib')
+    implementation  fileTree(include: ['*.jar'], dir: 'libs')
+    implementation   project(path:':tuxguitar-gm-utils')
+    implementation   project(path: ':tuxguitar-lib')
     testCompile 'junit:junit:4.12'
 }
 
