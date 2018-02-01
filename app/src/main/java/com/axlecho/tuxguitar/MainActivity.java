@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.test_btn) {
-            testShowGtp(Environment.getExternalStorageDirectory() + File.separator + "test.gp5");
+            testShowGtp(Environment.getExternalStorageDirectory() + File.separator + "a.gp5");
         }
     }
 

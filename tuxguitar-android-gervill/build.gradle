@@ -8,7 +8,7 @@ android {
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 1
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "0.0.1"
@@ -26,8 +26,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    api  project(path:':tuxguitar-gm-utils', configuration: 'default')
-    api  project(path: ':tuxguitar-lib', configuration: 'default')
+    compile  project(path:':tuxguitar-gm-utils')
+    compile  project(path: ':tuxguitar-lib')
     testCompile 'junit:junit:4.12'
 }
 

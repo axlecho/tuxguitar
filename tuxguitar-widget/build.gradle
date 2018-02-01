@@ -6,7 +6,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -34,11 +34,11 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
 
-    api  project(path: ':tuxguitar-lib', configuration: 'default')
-    api  project(path: ':tuxguitar-ptb', configuration: 'default')
-    api  project(path:':tuxguitar-gtp', configuration: 'default')
-    api  project(path:':tuxguitar-gpx', configuration: 'default')
-    api  project(path:':tuxguitar-gm-utils', configuration: 'default')
-    api  project(path:':tuxguitar-editor-utils', configuration: 'default')
-    api  project(path:':tuxguitar-android-gervill', configuration: 'default')
+    compile  project(path: ':tuxguitar-lib')
+    compile  project(path: ':tuxguitar-ptb')
+    compile  project(path:':tuxguitar-gtp')
+    compile  project(path:':tuxguitar-gpx')
+    compile  project(path:':tuxguitar-gm-utils')
+    compile  project(path:':tuxguitar-editor-utils')
+    compile  project(path:':tuxguitar-android-gervill')
 }

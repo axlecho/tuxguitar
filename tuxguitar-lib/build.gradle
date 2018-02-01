@@ -7,7 +7,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
     defaultConfig {
-        minSdkVersion 1
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "0.0.1"
@@ -48,7 +48,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 // delete the
 task jar(type: Jar) {
-    from 'build/intermediates/classes/release'
+    from 'build/intermediates/classes/debug'
     exclude '**/BuildConfig.class'
     exclude '**/R.class'
 }

@@ -8,7 +8,7 @@ android {
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 1
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "0.0.1"
@@ -27,8 +27,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    api  project(path: ':tuxguitar-lib', configuration: 'default')
-    api  project(path:':tuxguitar-gm-utils', configuration: 'default')
+    compile  project(path: ':tuxguitar-lib')
+    compile  project(path:':tuxguitar-gm-utils')
 }
 
 // build a jar with source files
@@ -51,7 +51,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 // delete the
 task jar(type: Jar) {
-    from 'build/intermediates/classes/release'
+    from 'build/intermediates/classes/debug'
     exclude '**/BuildConfig.class'
     exclude '**/R.class'
 }
