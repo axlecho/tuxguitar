@@ -62,13 +62,13 @@ public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureLi
     }
 
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        // int distance = e2.getY() > e1.getY() ? -200 : 200;
-        // this.scroller.startScroll(0,0,0,distance);
-        int vx = (int) -velocityX;
-        int vy = (int) -velocityY;
+        int distance = e2.getY() > e1.getY() ? -200 : 200;
+        this.scroller.startScroll(0,0,0,distance);
+        // int vx = (int) -velocityX;
+        // int vy = (int) -velocityY;
 
-        this.scroller.fling(0, 0, vx, vy, -Integer.MAX_VALUE, Integer.MAX_VALUE, -Integer.MAX_VALUE, Integer.MAX_VALUE);
-        this.songView.invalidate();
+        // this.scroller.fling(0, 0, vx, vy, -Integer.MAX_VALUE, Integer.MAX_VALUE, -Integer.MAX_VALUE, Integer.MAX_VALUE);
+        // this.songView.redraw();
         return true;
     }
 

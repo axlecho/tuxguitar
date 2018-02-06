@@ -17,17 +17,20 @@ import org.herac.tuxguitar.util.error.TGErrorManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
-public class TGSongView extends View {
+public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
 
     private TGContext context;
     private TGSongViewController controller;
     private TGSongViewGestureDetector gestureDetector;
 
+    private SurfaceHolder surfaceHolder;
     private Bitmap bufferedBitmap;
     private boolean painting;
 
@@ -51,6 +54,9 @@ public class TGSongView extends View {
         this.controller.getLayout().loadStyles(this.getDefaultScale());
         this.controller.updateTablature();
         this.gestureDetector = new TGSongViewGestureDetector(getContext(), this);
+        this.surfaceHolder = getHolder();
+        this.surfaceHolder.addCallback(this);
+        super.onFinishInflate();
     }
 
     public float getDefaultScale() {
@@ -67,7 +73,7 @@ public class TGSongView extends View {
 
     public void redraw() {
         this.setPainting(true);
-        this.postInvalidate();
+        new Thread(this).start();
     }
 
     public void paintBuffer(Canvas canvas) {
@@ -175,32 +181,6 @@ public class TGSongView extends View {
         return success;
     }
 
-    public void onDraw(Canvas canvas) {
-        try {
-            TGEditorManager editor = TGEditorManager.getInstance(this.context);
-            if (editor.tryLock()) {
-                try {
-                    this.setPainting(true);
-
-                    this.paintBuffer(canvas);
-
-                    this.setPainting(false);
-                } finally {
-                    editor.unlock();
-                }
-            } else {
-                // try later
-                this.postInvalidate();
-            }
-
-            if (this.bufferedBitmap != null) {
-                canvas.drawBitmap(this.bufferedBitmap, 0, 0, null);
-            }
-        } catch (Throwable throwable) {
-            this.handleError(throwable);
-        }
-    }
-
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureDetector.processTouchEvent(event);
         this.redraw();
@@ -283,7 +263,7 @@ public class TGSongView extends View {
     public void computeScroll() {
 
 
-        // android.util.Log.d("axlecho", "[computeScroll] " + this.gestureDetector.getScroller().getCurrDistanceX() + " " +this.gestureDetector.getScroller().getCurrDistanceY());
+        android.util.Log.d("axlecho", "[computeScroll] " + this.gestureDetector.getScroller().getCurrX() + " " + this.gestureDetector.getScroller().getCurrY());
 
         if (this.gestureDetector.getScroller().computeScrollOffset()) {
             if (this.getController().isScrollActionAvailable()) {
@@ -291,7 +271,7 @@ public class TGSongView extends View {
                 this.updateAxis(this.getController().getScroll().getY(), this.gestureDetector.getScroller().getCurrDistanceY());
             }
 
-            postInvalidate();
+            this.redraw();
         }
         super.computeScroll();
     }
@@ -300,5 +280,38 @@ public class TGSongView extends View {
         if (axis.isEnabled()) {
             axis.setValue(Math.max(Math.min(axis.getValue() + distance, axis.getMaximum()), axis.getMinimum()));
         }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        this.redraw();
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+
+    }
+
+    @Override
+    public void run() {
+        draw();
+    }
+
+    public void draw() {
+        Canvas canvas = this.surfaceHolder.lockCanvas();
+        if (null != canvas) {
+            canvas.drawColor(Color.WHITE);
+            this.setPainting(true);
+            this.paintBuffer(canvas);
+            this.setPainting(false);
+            canvas.drawBitmap(this.bufferedBitmap, 0, 0, null);
+            this.surfaceHolder.unlockCanvasAndPost(canvas);
+        }
+        computeScroll();
     }
 }
