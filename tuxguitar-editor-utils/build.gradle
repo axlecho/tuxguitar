@@ -30,34 +30,3 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation project(':tuxguitar-lib')
 }
-
-// build a jar with source files
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-// build a jar with javadoc
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-// delete the
-task jar(type: Jar) {
-    from 'build/intermediates/classes/release'
-    exclude '**/BuildConfig.class'
-    exclude '**/R.class'
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-    archives jar
-}
