@@ -1,5 +1,6 @@
 package org.herac.tuxguitar.android.action.installer;
 
+import org.herac.tuxguitar.action.TGAction;
 import org.herac.tuxguitar.android.action.TGActionMap;
 import org.herac.tuxguitar.android.action.impl.browser.TGBrowserAddCollectionAction;
 import org.herac.tuxguitar.android.action.impl.browser.TGBrowserCdElementAction;
@@ -51,6 +52,7 @@ import org.herac.tuxguitar.android.action.impl.track.TGGoToTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGMuteTrackAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGCountDownAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetCountDownEnableAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGSetLoopAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetPlayRateAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGTransportPlayAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGTransportStopAction;
@@ -364,6 +366,7 @@ public class TGActionConfigMap extends TGActionMap<TGActionConfig> {
         this.map(TGTransportStopAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
         this.map(TGSetPlayRateAction.NAME,LOCKABLE,UPDATE_ITEMS_CTL);
         this.map(TGCountDownAction.NAME,LOCKABLE,UPDATE_ITEMS_CTL);
+        this.map(TGSetLoopAction.NAME,LOCKABLE,UPDATE_ITEMS_CTL);
         this.map(TGSetCountDownEnableAction.NAME,LOCKABLE | DISABLE_ON_PLAY,UPDATE_ITEMS_CTL);
 
         //layout actions

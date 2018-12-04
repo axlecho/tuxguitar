@@ -43,6 +43,7 @@ public class TGSongViewController implements TGController {
     private TGScroll scroll;
     private TGSongView songView;
     private float scalePreview;
+    private TGLoop loop;
 
     public TGSongViewController(TGContext context) {
         this.context = context;
@@ -55,6 +56,7 @@ public class TGSongViewController implements TGController {
         this.caret = new TGCaret(this);
         this.scroll = new TGScroll();
         this.axisSelector = new TGSongViewAxisSelector(this);
+        this.loop = new TGLoop(this);
 
         this.resetCaret();
         this.resetScroll();
@@ -174,6 +176,10 @@ public class TGSongViewController implements TGController {
 
     public TGSongView getSongView() {
         return songView;
+    }
+
+    public TGLoop getLoop() {
+        return loop;
     }
 
     public void setSongView(TGSongView tgSongView) {

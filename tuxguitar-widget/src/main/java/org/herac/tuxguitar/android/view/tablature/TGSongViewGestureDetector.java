@@ -1,10 +1,15 @@
 package org.herac.tuxguitar.android.view.tablature;
 
+import org.herac.tuxguitar.android.TuxGuitar;
 import org.herac.tuxguitar.android.action.impl.caret.TGMoveToAxisPositionAction;
 import org.herac.tuxguitar.android.action.impl.gui.TGFullScreenAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGSetLoopAction;
 import org.herac.tuxguitar.android.activity.TGActivityController;
 import org.herac.tuxguitar.android.application.TGApplicationUtil;
+import org.herac.tuxguitar.android.util.MidiTickUtil;
 import org.herac.tuxguitar.editor.action.TGActionProcessor;
+import org.herac.tuxguitar.player.base.MidiPlayer;
+import org.herac.tuxguitar.song.models.TGMeasureHeader;
 
 import android.content.Context;
 import android.support.v4.view.GestureDetectorCompat;
@@ -40,6 +45,13 @@ public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureLi
             this.gestureDetector.onTouchEvent(event);
         }
         return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        Log.d(TAG,"[onLongPress]");
+        this.setLoop(e.getX(),e.getY());
+        super.onLongPress(e);
     }
 
     @Override
@@ -82,6 +94,13 @@ public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureLi
         TGActionProcessor tgActionProcessor = new TGActionProcessor(TGApplicationUtil.findContext(this.songView), TGMoveToAxisPositionAction.NAME);
         tgActionProcessor.setAttribute(TGMoveToAxisPositionAction.ATTRIBUTE_X, x);
         tgActionProcessor.setAttribute(TGMoveToAxisPositionAction.ATTRIBUTE_Y, y);
+        tgActionProcessor.processOnNewThread();
+    }
+
+    private void setLoop(Float x,Float y) {
+        TGActionProcessor tgActionProcessor = new TGActionProcessor(TGApplicationUtil.findContext(this.songView), TGSetLoopAction.NAME);
+        tgActionProcessor.setAttribute(TGSetLoopAction.ATTRIBUTE_X, x);
+        tgActionProcessor.setAttribute(TGSetLoopAction.ATTRIBUTE_Y, y);
         tgActionProcessor.processOnNewThread();
     }
 

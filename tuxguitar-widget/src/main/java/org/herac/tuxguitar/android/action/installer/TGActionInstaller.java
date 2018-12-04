@@ -52,6 +52,7 @@ import org.herac.tuxguitar.android.action.impl.track.TGGoToTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGMuteTrackAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGCountDownAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetCountDownEnableAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGSetLoopAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetPlayRateAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGTransportPlayAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGTransportStopAction;
@@ -319,6 +320,7 @@ public class TGActionInstaller {
 		installAction(new TGTransportStopAction(context));
 		installAction(new TGSetPlayRateAction(context));
 		installAction(new TGCountDownAction(context));
+		installAction(new TGSetLoopAction(context));
 		installAction(new TGSetCountDownEnableAction(context));
 
 		//layout actions

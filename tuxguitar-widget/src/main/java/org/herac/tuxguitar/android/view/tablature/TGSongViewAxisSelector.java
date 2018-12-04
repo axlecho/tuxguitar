@@ -11,6 +11,7 @@ import org.herac.tuxguitar.graphics.control.TGMeasureImpl;
 import org.herac.tuxguitar.graphics.control.TGTrackImpl;
 import org.herac.tuxguitar.graphics.control.TGTrackSpacing;
 import org.herac.tuxguitar.song.models.TGBeat;
+import org.herac.tuxguitar.song.models.TGMeasure;
 import org.herac.tuxguitar.song.models.TGString;
 
 public class TGSongViewAxisSelector {
@@ -43,7 +44,21 @@ public class TGSongViewAxisSelector {
 		}
 		return false;
 	}
-	
+
+	public TGMeasureImpl selectMeasure(float x,float y) {
+		if( x >= 0 && y >= 0 ){
+			TGTrackImpl track = findSelectedTrack(y);
+			if (track != null) {
+				TGMeasureImpl measure = findSelectedMeasure(track, x, y);
+				if (measure != null) {
+					return measure;
+				}
+			}
+		}
+		return null;
+	}
+
+
 	private TGTrackImpl findSelectedTrack(float y){
 		TGLayout layout = this.controller.getLayout();
 		int number = layout.getTrackNumberAt(y);
