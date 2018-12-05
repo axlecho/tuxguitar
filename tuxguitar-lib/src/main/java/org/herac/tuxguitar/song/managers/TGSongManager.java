@@ -82,7 +82,15 @@ public class TGSongManager {
 	public void clearSong(TGSong song){
 		song.clear();
 	}
-	
+
+	public void addMetronomeChannel(TGSong song) {
+		TGChannel channel = getFactory().newChannel();
+		channel.setChannelId(127);
+		channel.setBank(TGChannel.DEFAULT_PERCUSSION_BANK);
+		channel.setName("metronome");
+		song.addChannel(channel);
+	}
+
 	public void fillSong(TGSong song){
 		TGChannel channel = getFactory().newChannel();
 		channel.setChannelId(1);

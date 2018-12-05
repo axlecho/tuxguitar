@@ -263,8 +263,6 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
     public void computeScroll() {
 
 
-        android.util.Log.d("axlecho", "[computeScroll] " + this.gestureDetector.getScroller().getCurrX() + " " + this.gestureDetector.getScroller().getCurrY());
-
         if (this.gestureDetector.getScroller().computeScrollOffset()) {
             if (this.getController().isScrollActionAvailable()) {
                 this.updateAxis(this.getController().getScroll().getX(), this.gestureDetector.getScroller().getCurrDistanceX());

@@ -28,6 +28,7 @@ public class TGDocumentManager {
 	public void setSong(TGSong song) {
 		if( song != null ){
 			this.song = song;
+			songManager.addMetronomeChannel(song);
 		}
 	}
 

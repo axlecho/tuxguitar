@@ -188,7 +188,9 @@ public class MidiPlayer{
 	public synchronized void play() throws MidiPlayerException{
 		try {
 			this.lock();
-			
+			this.getCountDown().setEnabled(true);
+			this.setMetronomeEnabled(true);
+
 			final boolean notifyStarted = (!this.isRunning());
 			this.setRunning(true);
 			this.stopSequencer();
