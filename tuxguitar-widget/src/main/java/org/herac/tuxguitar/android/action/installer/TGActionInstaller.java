@@ -50,8 +50,8 @@ import org.herac.tuxguitar.android.action.impl.track.TGGoNextTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGGoPreviousTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGGoToTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGMuteTrackAction;
-import org.herac.tuxguitar.android.action.impl.transport.TGCountDownAction;
-import org.herac.tuxguitar.android.action.impl.transport.TGSetCountDownEnableAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGEnableCountDownAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGEnableMetronomeAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetLoopAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetPlayRateAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGTransportPlayAction;
@@ -319,9 +319,9 @@ public class TGActionInstaller {
 		installAction(new TGTransportPlayAction(context));
 		installAction(new TGTransportStopAction(context));
 		installAction(new TGSetPlayRateAction(context));
-		installAction(new TGCountDownAction(context));
 		installAction(new TGSetLoopAction(context));
-		installAction(new TGSetCountDownEnableAction(context));
+		installAction(new TGEnableCountDownAction(context));
+		installAction(new TGEnableMetronomeAction(context));
 
 		//layout actions
 		installAction(new TGSetLayoutScaleAction(context));
@@ -382,7 +382,7 @@ public class TGActionInstaller {
 			if( config.isLockableAction() ) {
 				this.manager.getLockableActionListener().addActionId(actionId);
 			}
-			
+
 			this.manager.getUpdatableActionListener().getControllers().set(actionId, config.getUpdateController());
 			this.manager.getUndoableActionListener().getControllers().set(actionId, config.getUndoableController());
 		}

@@ -7,12 +7,10 @@ import org.herac.tuxguitar.android.action.listener.browser.TGActionUpdateBrowser
 import org.herac.tuxguitar.android.action.listener.cache.TGUpdateListener;
 import org.herac.tuxguitar.android.action.listener.error.TGActionErrorHandler;
 import org.herac.tuxguitar.android.action.listener.gui.TGActionProcessingListener;
-import org.herac.tuxguitar.android.action.listener.gui.TGFinishConfirmInterceptor;
 import org.herac.tuxguitar.android.action.listener.gui.TGHideSoftInputListener;
 import org.herac.tuxguitar.android.action.listener.lock.TGLockableActionListener;
 import org.herac.tuxguitar.android.action.listener.navigation.TGActionUpdateFragmentListener;
 import org.herac.tuxguitar.android.action.listener.thread.TGSyncThreadInterceptor;
-import org.herac.tuxguitar.android.action.listener.transport.TGCountDownInterceptor;
 import org.herac.tuxguitar.android.action.listener.transport.TGDisableOnPlayInterceptor;
 import org.herac.tuxguitar.android.action.listener.transport.TGStopTransportInterceptor;
 import org.herac.tuxguitar.android.action.listener.undoable.TGUndoableActionListener;
@@ -27,7 +25,6 @@ public class TGActionAdapterManager {
 	private TGActionContextFactory actionContextFactory;
 	private TGDisableOnPlayInterceptor disableOnPlayInterceptor;
 	private TGStopTransportInterceptor stopTransportInterceptor;
-	private TGCountDownInterceptor countDownInterceptor;
 	private TGSyncThreadInterceptor syncThreadInterceptor;
 	private TGLockableActionListener lockableActionListener;
 	private TGUndoableActionListener undoableActionListener;
@@ -39,7 +36,6 @@ public class TGActionAdapterManager {
 		this.actionContextFactory = new TGActionContextFactoryImpl(context);
 		this.disableOnPlayInterceptor = new TGDisableOnPlayInterceptor(context);
 		this.stopTransportInterceptor = new TGStopTransportInterceptor(context);
-		this.countDownInterceptor = new TGCountDownInterceptor(context);
 		this.syncThreadInterceptor = new TGSyncThreadInterceptor(context);
 		this.lockableActionListener = new TGLockableActionListener(context);
 		this.undoableActionListener = new TGUndoableActionListener(context);
@@ -63,7 +59,6 @@ public class TGActionAdapterManager {
 		tgActionManager.addInterceptor(this.stopTransportInterceptor);
 		tgActionManager.addInterceptor(this.disableOnPlayInterceptor);
 		tgActionManager.addInterceptor(this.syncThreadInterceptor);
-		tgActionManager.addInterceptor(this.countDownInterceptor);
 
 		tgActionManager.addPreExecutionListener(processingListener);
 		tgActionManager.addPreExecutionListener(this.errorHandler);
@@ -103,10 +98,6 @@ public class TGActionAdapterManager {
 	
 	public TGStopTransportInterceptor getStopTransportInterceptor() {
 		return stopTransportInterceptor;
-	}
-
-	public TGCountDownInterceptor getCountDownInterceptor() {
-		return countDownInterceptor;
 	}
 
 	public TGSyncThreadInterceptor getSyncThreadInterceptor() {

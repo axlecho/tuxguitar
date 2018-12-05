@@ -77,7 +77,7 @@
 
     <string name="toolbar_countdown">倒计时</string>
     <string name="toolbar_countdown_enable">启用倒计时</string>
-
+    <string name="toolbar_metonome">启用节奏器</string>
     <string name="menu_switch_orientation">切换屏幕方向</string>
 
     <string name="toolbar_fullscreen">切换全屏</string>

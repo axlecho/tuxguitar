@@ -37,21 +37,6 @@ public class TGPreferencesManager {
         editor.apply();
     }
 
-    public boolean isCountDownEnable(Context context) {
-        SharedPreferences sp = context.getSharedPreferences(perference, Activity.MODE_PRIVATE);
-        boolean enable = sp.getBoolean("count_down_enable", false);
-        Log.d(TAG, "[setCountDownEnable] enable " + enable);
-        return enable;
-    }
-
-    public void setCountDownEnable(Context context, boolean enable) {
-        Log.d(TAG, "[setCountDownEnable] enable " + enable);
-        SharedPreferences sp = context.getSharedPreferences(perference, Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean("count_down_enable", enable);
-        editor.apply();
-    }
-
     public static TGPreferencesManager getInstance(TGContext context) {
         return TGSingletonUtil.getInstance(context, TGPreferencesManager.class.getName(), new TGSingletonFactory<TGPreferencesManager>() {
             public TGPreferencesManager createInstance(TGContext context) {

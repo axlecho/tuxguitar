@@ -1,6 +1,5 @@
 package org.herac.tuxguitar.android.action.installer;
 
-import org.herac.tuxguitar.action.TGAction;
 import org.herac.tuxguitar.android.action.TGActionMap;
 import org.herac.tuxguitar.android.action.impl.browser.TGBrowserAddCollectionAction;
 import org.herac.tuxguitar.android.action.impl.browser.TGBrowserCdElementAction;
@@ -50,8 +49,8 @@ import org.herac.tuxguitar.android.action.impl.track.TGGoNextTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGGoPreviousTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGGoToTrackAction;
 import org.herac.tuxguitar.android.action.impl.track.TGMuteTrackAction;
-import org.herac.tuxguitar.android.action.impl.transport.TGCountDownAction;
-import org.herac.tuxguitar.android.action.impl.transport.TGSetCountDownEnableAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGEnableCountDownAction;
+import org.herac.tuxguitar.android.action.impl.transport.TGEnableMetronomeAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetLoopAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetPlayRateAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGTransportPlayAction;
@@ -364,10 +363,10 @@ public class TGActionConfigMap extends TGActionMap<TGActionConfig> {
         //transport actions
         this.map(TGTransportPlayAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
         this.map(TGTransportStopAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
-        this.map(TGSetPlayRateAction.NAME,LOCKABLE,UPDATE_ITEMS_CTL);
-        this.map(TGCountDownAction.NAME,LOCKABLE,UPDATE_ITEMS_CTL);
-        this.map(TGSetLoopAction.NAME,LOCKABLE,UPDATE_ITEMS_CTL);
-        this.map(TGSetCountDownEnableAction.NAME,LOCKABLE | DISABLE_ON_PLAY,UPDATE_ITEMS_CTL);
+        this.map(TGSetPlayRateAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
+        this.map(TGSetLoopAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
+        this.map(TGEnableCountDownAction.NAME, LOCKABLE | DISABLE_ON_PLAY, UPDATE_ITEMS_CTL);
+        this.map(TGEnableMetronomeAction.NAME, LOCKABLE | DISABLE_ON_PLAY, UPDATE_ITEMS_CTL);
 
         //layout actions
         this.map(TGSetLayoutScaleAction.NAME, LOCKABLE | DISABLE_ON_PLAY, UPDATE_SONG_CTL);
