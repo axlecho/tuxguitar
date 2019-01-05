@@ -3,6 +3,8 @@
     <string name="action_countdown">倒计时</string>
     <string name="action_settings">设置</string>
     <string name="action_turning">音调</string>
+    <string name="action_timer">倒计时</string>
+    <string name="action_metronome">节拍器</string>
     <string name="tablature">吉他谱</string>
     <string name="score">曲谱</string>
     <string name="video">视频</string>

@@ -365,8 +365,8 @@ public class TGActionConfigMap extends TGActionMap<TGActionConfig> {
         this.map(TGTransportStopAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
         this.map(TGSetPlayRateAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
         this.map(TGSetLoopAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
-        this.map(TGEnableCountDownAction.NAME, LOCKABLE | DISABLE_ON_PLAY, UPDATE_ITEMS_CTL);
-        this.map(TGEnableMetronomeAction.NAME, LOCKABLE | DISABLE_ON_PLAY, UPDATE_ITEMS_CTL);
+        this.map(TGEnableCountDownAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
+        this.map(TGEnableMetronomeAction.NAME, LOCKABLE, UPDATE_ITEMS_CTL);
 
         //layout actions
         this.map(TGSetLayoutScaleAction.NAME, LOCKABLE | DISABLE_ON_PLAY, UPDATE_SONG_CTL);

@@ -31,10 +31,10 @@ public class TGToggleStyledIconHelper implements TGEventListener {
     private TGContext context;
     private TGActivity activity;
     private TGProcess updateIcons;
-    private Menu menu;
+    protected Menu menu;
     private Map<Integer, Drawable> styledIcons;
     private List<TGToggleStyledIconHandler> handlers;
-    private TextImageView button;
+    protected TextImageView button;
 
     public TGToggleStyledIconHelper(TGContext context) {
         this.context = context;

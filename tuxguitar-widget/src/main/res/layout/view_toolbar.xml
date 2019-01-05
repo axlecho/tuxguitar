@@ -63,6 +63,42 @@
         android:textSize="@dimen/toolbar_contentdescription"
         app:src="@drawable/ic_settings_white_48px"
         app:src_color="@color/toolbar_normal_color_selector"
+        app:src_size= "@dimen/toolbar_sub_icon_size" />
+
+    <org.herac.tuxguitar.android.toolbar.TextImageView
+        android:id="@+id/toolbar_timer"
+        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_height="@dimen/toolbar_icon_height"
+        android:layout_marginEnd="@dimen/toolbar_icon_margin"
+        android:layout_marginRight="@dimen/toolbar_icon_margin"
+        android:layout_toEndOf="@+id/toolbar_settings"
+        android:layout_toRightOf="@+id/toolbar_settings"
+        android:contentDescription="@string/action_timer"
+        android:gravity="center"
+        android:padding="@dimen/toolbar_icon_padding"
+        android:text="@string/action_timer"
+        android:textColor="@color/toolbar_normal_color_selector"
+        android:textSize="@dimen/toolbar_contentdescription"
+        app:src="@drawable/ic_timer"
+        app:src_color="@color/toolbar_playbtn_color_selector"
+        app:src_size="@dimen/toolbar_sub_icon_size" />
+
+    <org.herac.tuxguitar.android.toolbar.TextImageView
+        android:id="@+id/toolbar_metronome"
+        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_height="@dimen/toolbar_icon_height"
+        android:layout_marginEnd="@dimen/toolbar_icon_margin"
+        android:layout_marginRight="@dimen/toolbar_icon_margin"
+        android:layout_toEndOf="@+id/toolbar_timer"
+        android:layout_toRightOf="@+id/toolbar_timer"
+        android:contentDescription="@string/action_metronome"
+        android:gravity="center"
+        android:padding="@dimen/toolbar_icon_padding"
+        android:text="@string/action_metronome"
+        android:textColor="@color/toolbar_normal_color_selector"
+        android:textSize="@dimen/toolbar_contentdescription"
+        app:src="@drawable/ic_metronome"
+        app:src_color="@color/toolbar_playbtn_color_selector"
         app:src_size="@dimen/toolbar_sub_icon_size" />
 
     <org.herac.tuxguitar.android.toolbar.TextImageView
