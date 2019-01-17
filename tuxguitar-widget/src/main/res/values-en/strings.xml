@@ -1,16 +1,31 @@
 <resources tools:ignore="ExtraTranslation" xmlns:tools="http://schemas.android.com/tools">
-   
+    <string name="action_countdown">倒计时</string>
+    <string name="action_settings">设置</string>
+    <string name="action_turning">音调</string>
+    <string name="action_timer">倒计时</string>
+    <string name="action_metronome">节拍器</string>
+
+    <!-- =================================================================== -->
+    <!-- ========================== TOOLBAR =================================== -->
+    <!-- =================================================================== -->
+    <string name="toolbar_playrate_dlg_title">Playrate</string>
+    <string name="toolbar_tracks_dlg_title">Tracks</string>
+    <string name="toolbar_turning_dlg_title">调弦音调</string>
+    <string name="toolbar_view">ShowSettings</string>
+    <string name="toolbar_countdown">CountDown</string>
+    <string name="toolbar_countdown_enable">CountDownEnable</string>
+    <string name="toolbar_metronome">Metronome</string>
+    <string name="toolbar_fullscreen">Fullscreen</string>
+    <string name="menu_switch_orientation">SwitchOrientation</string>
+
     <!-- =================================================================== -->
     <!-- ========================= GLOBAL ================================== -->
     <!-- =================================================================== -->
-
     <string name="global_error_message">An unexpected error has occurred</string>
-    <string name="global_exit_confirm_message">Are you sure you want to exit?</string>
-
+    <string name="global_exit_confirm_message">Are you sure you want to exit??</string>
     <string name="global_button_ok">OK</string>
     <string name="global_button_cancel">Cancel</string>
     <string name="global_button_clean">Clean</string>
-
     <string name="global_spinner_select_option">-- Select --</string>
 
     <!-- =================================================================== -->
@@ -30,11 +45,10 @@
     <string name="menu_edit_set_voice_1">Select Voice 1</string>
     <string name="menu_edit_set_voice_2">Select Voice 2</string>
 
-    <string name="toolbar_view">ShowSettings</string>
-    <string name="menu_view_channel_list">Instruments</string>
-    <string name="toolbar_view_layout_show_score">ShowScore</string>
-    <string name="toolbar_view_layout_show_chord_name">ShowChordName</string>
-    <string name="toolbar_view_layout_show_chord_diagram">ShowChordDiagram</string>
+    <string name="menu_view_channel_list">乐器</string>
+    <string name="toolbar_view_layout_show_score">显示五线谱</string>
+    <string name="toolbar_view_layout_show_chord_name">显示和弦名称</string>
+    <string name="toolbar_view_layout_show_chord_diagram">显示和弦图</string>
 
     <string name="menu_transport">Player</string>
     <string name="menu_transport_play">Play</string>
@@ -161,8 +175,6 @@
     <string name="menu_channel_list_item_edit">Edit Instrument</string>
     <string name="menu_channel_list_item_remove">Remove Instrument</string>
     <string name="menu_channel_list_item_remove_confirm_question">Are you sure you want to remove this instrument?</string>
-
-    <string name="menu_switch_orientation">SwitchOrientation</string>
 
     <!-- =================================================================== -->
     <!-- ======================= MAIN DRAWER =============================== -->
@@ -328,10 +340,6 @@
     <string name="bend_dlg_preset_bend_release_bend">Bend/Release/Bend</string>
     <string name="bend_dlg_preset_prebend">Pre-Bend</string>
     <string name="bend_dlg_preset_prebend_release">Pre-Bend/Release</string>
-
-    <!-- Toolbar -->
-    <string name="toolbar_playrate_dlg_title">Playrate</string>
-    <string name="toolbar_tracks_dlg_title">Tracks</string>
 
     <!-- Tremolo Bar dialog -->
     <string name="tremolo_bar_dlg_title">Tremolo Bar</string>

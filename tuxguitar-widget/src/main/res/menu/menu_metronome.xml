@@ -3,5 +3,5 @@
     <item
         android:id="@+id/menu_metronome"
         android:checkable="true"
-        android:title="@string/toolbar_metonome" />
+        android:title="@string/toolbar_metronome" />
 </menu>
