@@ -3,7 +3,6 @@ package org.herac.tuxguitar.android.action;
 import org.herac.tuxguitar.action.TGActionContextFactory;
 import org.herac.tuxguitar.action.TGActionManager;
 import org.herac.tuxguitar.android.action.installer.TGActionInstaller;
-import org.herac.tuxguitar.android.action.listener.browser.TGActionUpdateBrowserListener;
 import org.herac.tuxguitar.android.action.listener.cache.TGUpdateListener;
 import org.herac.tuxguitar.android.action.listener.error.TGActionErrorHandler;
 import org.herac.tuxguitar.android.action.listener.gui.TGActionProcessingListener;
@@ -72,7 +71,6 @@ public class TGActionAdapterManager {
 		tgActionManager.addPostExecutionListener(this.errorHandler);
 		tgActionManager.addPostExecutionListener(hideSoftInputListener);
 		tgActionManager.addPostExecutionListener(processingListener);
-		tgActionManager.addPostExecutionListener(new TGActionUpdateBrowserListener(activity));
 		tgActionManager.addPostExecutionListener(new TGActionUpdateFragmentListener(activity));
 		
 		tgActionManager.addErrorListener(processingListener);

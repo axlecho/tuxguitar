@@ -2,21 +2,6 @@ package org.herac.tuxguitar.android.action.installer;
 
 import org.herac.tuxguitar.action.TGActionManager;
 import org.herac.tuxguitar.android.action.TGActionAdapterManager;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserAddCollectionAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserCdElementAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserCdRootAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserCdUpAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserCloseSessionAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserLoadSessionAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserOpenElementAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserOpenSessionAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserPrepareForReadAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserPrepareForWriteAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserRefreshAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserRemoveCollectionAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserSaveCurrentElementAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserSaveElementAction;
-import org.herac.tuxguitar.android.action.impl.browser.TGBrowserSaveNewElementAction;
 import org.herac.tuxguitar.android.action.impl.caret.TGGoDownAction;
 import org.herac.tuxguitar.android.action.impl.caret.TGGoLeftAction;
 import org.herac.tuxguitar.android.action.impl.caret.TGGoRightAction;
@@ -328,22 +313,7 @@ public class TGActionInstaller {
 		installAction(new TGSetChordNameEnabledAction(context));
 		installAction(new TGSetChordDiagramEnabledAction(context));
 
-		//browser actions
-		installAction(new TGBrowserCdRootAction(context));
-		installAction(new TGBrowserCdUpAction(context));
-		installAction(new TGBrowserCdElementAction(context));
-		installAction(new TGBrowserRefreshAction(context));
-		installAction(new TGBrowserOpenElementAction(context));
-		installAction(new TGBrowserSaveElementAction(context));
-		installAction(new TGBrowserSaveNewElementAction(context));
-		installAction(new TGBrowserSaveCurrentElementAction(context));
-		installAction(new TGBrowserPrepareForReadAction(context));
-		installAction(new TGBrowserPrepareForWriteAction(context));
-		installAction(new TGBrowserLoadSessionAction(context));
-		installAction(new TGBrowserOpenSessionAction(context));
-		installAction(new TGBrowserCloseSessionAction(context));
-		installAction(new TGBrowserAddCollectionAction(context));
-		installAction(new TGBrowserRemoveCollectionAction(context));
+
 
 		//intent actions
 		installAction(new TGProcessIntentAction(context));

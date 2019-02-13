@@ -106,7 +106,6 @@
         android:layout_width="@dimen/toolbar_play_icon_size"
         android:layout_height="@dimen/toolbar_play_icon_size"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:contentDescription="@string/menu_transport_play"
         android:gravity="center"
         android:padding="@dimen/toolbar_icon_padding"
