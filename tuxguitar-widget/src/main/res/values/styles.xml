@@ -1,7 +1,10 @@
 <resources>
-
-    <style name="TuxGuitarTheme.FullScreen" parent="TuxGuitarTheme.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
+    <!-- Base application theme. -->
+    <style name="TuxGuitarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorWhite</item>
     </style>
 
     <style name="TuxGuitarTheme.NoActionBar" parent="TuxGuitarTheme">
@@ -11,12 +14,9 @@
         <item name="colorControlNormal">@color/colorWhite</item>
     </style>
 
-    <!-- Base application theme. -->
-    <style name="TuxGuitarTheme" parent="android:Theme.Light">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">@color/colorWhite</item>
+    <style name="TuxGuitarTheme.FullScreen" parent="TuxGuitarTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
     </style>
+
 
 </resources>
