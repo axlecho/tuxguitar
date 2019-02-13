@@ -31,11 +31,6 @@ public class TGMainFragment extends TGCachedFragment {
 		TGMainMenu.getInstance(this.findContext()).initialize(activity, menu);
 	}
 	
-	@Override
-	public void onPostCreateDrawer(ViewGroup drawerView) {
-		this.getActivity().getLayoutInflater().inflate(R.layout.view_main_drawer, drawerView);
-	}
-	
 	public View findChildViewById(int id) {
 		if( this.getView() != null ) {
 			return this.getView().findViewById(id);

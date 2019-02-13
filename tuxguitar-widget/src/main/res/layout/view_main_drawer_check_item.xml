@@ -6,7 +6,6 @@
 
     <CheckedTextView
         android:id="@+id/main_drawer_check_item"
-        style="@style/MainDrawerListItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -17,7 +16,6 @@
 
     <CheckBox
         android:id="@+id/checkbox_mute_track"
-        style="@style/TrackVolumeCheckboxStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
