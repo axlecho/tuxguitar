@@ -1,54 +1,57 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.herac.tuxguitar.android">
 
-    <application android:allowBackup="true" android:label="@string/app_name"
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
         android:supportsRtl="true">
         <activity
             android:name="org.herac.tuxguitar.android.activity.TGActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/TuxGuitarTheme.FullScreen">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
 
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.tg"
-                    android:scheme="file"/>
+                    android:scheme="file" />
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.gtp"
-                    android:scheme="file"/>
+                    android:scheme="file" />
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.gp3"
-                    android:scheme="file"/>
+                    android:scheme="file" />
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.gp4"
-                    android:scheme="file"/>
+                    android:scheme="file" />
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.gp5"
-                    android:scheme="file"/>
+                    android:scheme="file" />
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.gpx"
-                    android:scheme="file"/>
+                    android:scheme="file" />
                 <data
                     android:host="*"
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.ptb"
-                    android:scheme="file"/>
+                    android:scheme="file" />
             </intent-filter>
         </activity>
     </application>
