@@ -1,10 +1,23 @@
 package org.herac.tuxguitar.android.view.tablature;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+
 import org.herac.tuxguitar.android.TuxGuitar;
 import org.herac.tuxguitar.android.application.TGApplicationUtil;
 import org.herac.tuxguitar.android.graphics.TGPainterImpl;
 import org.herac.tuxguitar.android.transport.TGTransportCache;
-import org.herac.tuxguitar.editor.TGEditorManager;
 import org.herac.tuxguitar.graphics.TGPainter;
 import org.herac.tuxguitar.graphics.TGRectangle;
 import org.herac.tuxguitar.graphics.control.TGBeatImpl;
@@ -14,17 +27,7 @@ import org.herac.tuxguitar.util.TGContext;
 import org.herac.tuxguitar.util.TGException;
 import org.herac.tuxguitar.util.error.TGErrorManager;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Rect;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-
-public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
+public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, Handler.Callback {
 
     private TGContext context;
     private TGSongViewController controller;
@@ -32,6 +35,8 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
 
     private SurfaceHolder surfaceHolder;
     private Bitmap bufferedBitmap;
+    private HandlerThread renderThread;
+    private Handler renderHandler;
     private boolean painting;
 
     public TGSongView(Context context) {
@@ -56,6 +61,10 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
         this.gestureDetector = new TGSongViewGestureDetector(getContext(), this);
         this.surfaceHolder = getHolder();
         this.surfaceHolder.addCallback(this);
+        this.renderThread = new HandlerThread("render");
+        this.setZOrderOnTop(true);
+        this.getHolder().setFormat(PixelFormat.TRANSPARENT);
+        this.setBackgroundColor(Color.parseColor("#ffffffff"));
         super.onFinishInflate();
     }
 
@@ -73,7 +82,9 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
 
     public void redraw() {
         this.setPainting(true);
-        new Thread(this).start();
+        if (renderHandler != null) {
+            this.renderHandler.sendEmptyMessage(0);
+        }
     }
 
     public void paintBuffer(Canvas canvas) {
@@ -258,11 +269,8 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
     }
 
 
-
     @Override
     public void computeScroll() {
-
-
         if (this.gestureDetector.getScroller().computeScrollOffset()) {
             if (this.getController().isScrollActionAvailable()) {
                 this.updateAxis(this.getController().getScroll().getX(), this.gestureDetector.getScroller().getCurrDistanceX());
@@ -282,6 +290,8 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        this.renderThread.start();
+        this.renderHandler = new Handler(renderThread.getLooper(), this);
         this.redraw();
     }
 
@@ -292,18 +302,17 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, R
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-
+        this.renderThread.quit();
     }
 
-    @Override
-    public void run() {
+    public boolean handleMessage(Message msg) {
         draw();
+        return false;
     }
 
     public void draw() {
         Canvas canvas = this.surfaceHolder.lockCanvas();
         if (null != canvas) {
-            canvas.drawColor(Color.WHITE);
             this.setPainting(true);
             this.paintBuffer(canvas);
             this.setPainting(false);

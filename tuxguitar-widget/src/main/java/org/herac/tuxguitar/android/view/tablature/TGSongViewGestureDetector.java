@@ -49,7 +49,6 @@ public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureLi
 
     @Override
     public void onLongPress(MotionEvent e) {
-        Log.d(TAG,"[onLongPress]");
         this.setLoop(e.getX(),e.getY());
         super.onLongPress(e);
     }
@@ -79,7 +78,7 @@ public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureLi
         int vx = (int) -velocityX;
         int vy = (int) -velocityY;
 
-        this.scroller.fling(0, 0, vx, vy, -Integer.MAX_VALUE, Integer.MAX_VALUE, -Integer.MAX_VALUE, Integer.MAX_VALUE);
+        this.scroller.fling(0, 0, vx / 2, vy / 2 , -Integer.MAX_VALUE, Integer.MAX_VALUE, -Integer.MAX_VALUE, Integer.MAX_VALUE);
         // this.songView.redraw();
         return true;
     }
