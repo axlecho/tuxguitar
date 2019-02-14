@@ -5,5 +5,6 @@ public interface TGResource {
 	public void dispose();
 	
 	public boolean isDisposed();
-	
+
+	public int getSize();
 }

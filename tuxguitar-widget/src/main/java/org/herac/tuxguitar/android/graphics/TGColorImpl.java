@@ -20,7 +20,7 @@ public class TGColorImpl implements TGColor {
 	public boolean isDisposed() {
 		return this.model == null;
 	}
-	
+
 	public int getBlue() {
 		return model.getBlue();
 	}
@@ -32,7 +32,12 @@ public class TGColorImpl implements TGColor {
 	public int getRed() {
 		return this.model.getRed();
 	}
-	
+
+	@Override
+	public int getSize() {
+		return 0;
+	}
+
 	public int getHandle(int alpha){
 		return Color.argb(alpha, this.model.getRed(), this.model.getGreen(), this.model.getBlue());
 	}

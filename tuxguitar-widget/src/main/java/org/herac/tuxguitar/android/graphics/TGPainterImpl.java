@@ -87,7 +87,11 @@ public class TGPainterImpl extends TGResourceFactoryImpl implements TGPainter {
 	public boolean isDisposed() {
 		return (this.canvas == null || this.paint == null);
 	}
-	
+
+	public int getSize() {
+		return 1;
+	}
+
 	public void addArc(float x, float y, float w, float h, float startAngle, float arcLength) {
 		this.path.addArc(new RectF(x, y, x + w, y + h), startAngle, arcLength);
 		this.pathEmpty = false;

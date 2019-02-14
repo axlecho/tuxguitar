@@ -18,7 +18,7 @@ public class TGFontImpl implements TGFont {
 	public boolean isDisposed() {
 		return this.model == null;
 	}
-	
+
 	public String getName() {
 		return this.model.getName();
 	}
@@ -33,5 +33,9 @@ public class TGFontImpl implements TGFont {
 	
 	public boolean isItalic() {
 		return this.model.isItalic();
+	}
+
+	public int getSize() {
+		return 0;
 	}
 }
