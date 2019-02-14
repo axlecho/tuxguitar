@@ -62,9 +62,9 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         this.surfaceHolder = getHolder();
         this.surfaceHolder.addCallback(this);
         this.renderThread = new HandlerThread("render");
-        this.setZOrderOnTop(true);
-        this.getHolder().setFormat(PixelFormat.TRANSPARENT);
-        this.setBackgroundColor(Color.parseColor("#ffffffff"));
+        // this.setZOrderOnTop(true);
+        // this.getHolder().setFormat(PixelFormat.TRANSPARENT);
+        // this.setBackgroundColor(Color.parseColor("#ffffffff"));
         super.onFinishInflate();
     }
 
