@@ -3,13 +3,14 @@ package org.herac.tuxguitar.android.view.tablature;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -18,6 +19,7 @@ import org.herac.tuxguitar.android.TuxGuitar;
 import org.herac.tuxguitar.android.application.TGApplicationUtil;
 import org.herac.tuxguitar.android.graphics.TGPainterImpl;
 import org.herac.tuxguitar.android.transport.TGTransportCache;
+import org.herac.tuxguitar.android.view.util.TGRenderHelper;
 import org.herac.tuxguitar.graphics.TGPainter;
 import org.herac.tuxguitar.graphics.TGRectangle;
 import org.herac.tuxguitar.graphics.control.TGBeatImpl;
@@ -37,6 +39,7 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
     private Bitmap bufferedBitmap;
     private HandlerThread renderThread;
     private Handler renderHandler;
+    private TGRenderHelper renderHelper;
     private boolean painting;
 
     public TGSongView(Context context) {
@@ -62,6 +65,7 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         this.surfaceHolder = getHolder();
         this.surfaceHolder.addCallback(this);
         this.renderThread = new HandlerThread("render");
+        this.renderHelper = new TGRenderHelper();
         // this.setZOrderOnTop(true);
         // this.getHolder().setFormat(PixelFormat.TRANSPARENT);
         // this.setBackgroundColor(Color.parseColor("#ffffffff"));
@@ -80,27 +84,21 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         return (this.getDefaultScale() * 2f);
     }
 
-    public void redraw() {
-        this.setPainting(true);
-        if (renderHandler != null) {
-            this.renderHandler.sendEmptyMessage(0);
-        }
-    }
-
-    public void paintBuffer(Canvas canvas) {
+    public void paintBuffer(Canvas canvas, int x, int y) {
         try {
-            TGRectangle area = createClientArea(canvas);
-
-            TGPainter painter = createBufferedPainter(area);
-
-            this.paintArea(painter, area);
+            TGPainter painter = createDirtyBufferedPainter();
+            if (painter == null) {
+                return;
+            }
+            TGRectangle area = renderHelper.getDirtyArea();
+            // this.paintArea(painter, area);
 
             if (this.controller.getScalePreview() != TGSongViewController.EMPTY_SCALE) {
                 float currentSale = (1 / (this.controller.getLayout().getScale()) * this.controller.getScalePreview());
                 ((TGPainterImpl) painter).getCanvas().scale(currentSale, currentSale);
             }
 
-            this.paintTablature(painter, area);
+            this.paintTablature(painter, area, x, renderHelper.getFixY());
 
             painter.dispose();
         } catch (Throwable throwable) {
@@ -115,12 +113,12 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         painter.closePath();
     }
 
-    public void paintTablature(TGPainter painter, TGRectangle area) {
+    public void paintTablature(TGPainter painter, TGRectangle area, int x, int y) {
 
         if (this.controller.getSong() != null) {
             float titleheight = this.controller.getTitlePainter().getTitleHeight();
-            this.controller.getLayoutPainter().paint(painter, area, -this.getPaintableScrollX(), titleheight - this.getPaintableScrollY());
-            this.controller.getTitlePainter().paint(painter, area, this.getPaintableScrollX(), this.getPaintableScrollY());
+            this.controller.getLayoutPainter().paint(painter, area, -x, titleheight - y);
+            this.controller.getTitlePainter().paint(painter, area, x, y);
             this.controller.getCaret().paintCaret(this.controller.getLayout(), painter);
 
             this.controller.updateScroll(area);
@@ -194,7 +192,7 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
 
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureDetector.processTouchEvent(event);
-        this.redraw();
+        // this.redraw();
 
         return true;
     }
@@ -224,6 +222,13 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
             this.bufferedBitmap = Bitmap.createBitmap(Math.round(area.getWidth()), Math.round(area.getHeight()), Bitmap.Config.ARGB_4444);
         }
         return createPainter(new Canvas(this.bufferedBitmap));
+    }
+
+    public TGPainter createDirtyBufferedPainter() {
+        if (this.renderHelper.getDirtyBuffer() == null) {
+            return null;
+        }
+        return createPainter(new Canvas(this.renderHelper.getDirtyBuffer()));
     }
 
     public void recycleBuffer() {
@@ -275,9 +280,8 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
             if (this.getController().isScrollActionAvailable()) {
                 this.updateAxis(this.getController().getScroll().getX(), this.gestureDetector.getScroller().getCurrDistanceX());
                 this.updateAxis(this.getController().getScroll().getY(), this.gestureDetector.getScroller().getCurrDistanceY());
+                this.redraw();
             }
-
-            this.redraw();
         }
         super.computeScroll();
     }
@@ -305,6 +309,19 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         this.renderThread.quit();
     }
 
+    public void redraw() {
+        this.setPainting(true);
+        if (renderHandler != null) {
+            Log.d("XXXXXXXXX", "msg - " + getPaintableScrollY());
+            Message msg = Message.obtain();
+            Bundle data = new Bundle();
+            data.putInt("x", getPaintableScrollX());
+            data.putInt("y", getPaintableScrollY());
+            msg.setData(data);
+            this.renderHandler.sendMessage(msg);
+        }
+    }
+
     public boolean handleMessage(Message msg) {
         draw();
         return false;
@@ -313,10 +330,13 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
     public void draw() {
         Canvas canvas = this.surfaceHolder.lockCanvas();
         if (null != canvas) {
+            long s = SystemClock.currentThreadTimeMillis();
             this.setPainting(true);
-            this.paintBuffer(canvas);
+            this.renderHelper.preparePaint(canvas, getPaintableScrollX(), getPaintableScrollY());
+            this.paintBuffer(canvas, getPaintableScrollX(), getPaintableScrollY());
             this.setPainting(false);
-            canvas.drawBitmap(this.bufferedBitmap, 0, 0, null);
+            Log.d("time - total", String.valueOf(SystemClock.currentThreadTimeMillis() - s));
+            canvas.drawBitmap(this.renderHelper.getBuffer(), 0, 0, null);
             this.surfaceHolder.unlockCanvasAndPost(canvas);
         }
         computeScroll();
