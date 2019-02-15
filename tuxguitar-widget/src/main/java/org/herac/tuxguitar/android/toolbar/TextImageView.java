@@ -30,7 +30,7 @@ public class TextImageView extends AppCompatTextView implements ViewTreeObserver
 
     public void initAttr(AttributeSet attrs) {
         TypedArray t = getContext().obtainStyledAttributes(attrs, R.styleable.TextImageView);
-        this.icon = t.getResourceId(R.styleable.TextImageView_src, R.drawable.ic_home_white_48dp);
+        this.icon = t.getResourceId(R.styleable.TextImageView_src, R.drawable.ic_home);
         this.icon_size = t.getDimensionPixelSize(R.styleable.TextImageView_src_size, -1);
         this.icon_color = t.getResourceId(R.styleable.TextImageView_src_color, R.color.tab_home_selector);
         t.recycle();
