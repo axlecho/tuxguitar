@@ -1,10 +1,7 @@
 package org.herac.tuxguitar.android.view.tablature;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -34,7 +31,6 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
     private TGSongViewGestureDetector gestureDetector;
 
     private SurfaceHolder surfaceHolder;
-    private Bitmap bufferedBitmap;
     private HandlerThread renderThread;
     private Handler renderHandler;
     private boolean painting;
@@ -91,7 +87,7 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         try {
             TGRectangle area = createClientArea(canvas);
 
-            TGPainter painter = createBufferedPainter(area);
+            TGPainter painter = createPainter(canvas);
 
             this.paintArea(painter, area);
 
@@ -210,7 +206,6 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
 
-        this.recycleBuffer();
         this.controller.getLayoutPainter().dispose();
     }
 
@@ -218,20 +213,6 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         return new TGPainterImpl(canvas);
     }
 
-    public TGPainter createBufferedPainter(TGRectangle area) {
-        if (this.bufferedBitmap == null || this.bufferedBitmap.getWidth() != area.getWidth() || this.bufferedBitmap.getHeight() != area.getHeight()) {
-            this.recycleBuffer();
-            this.bufferedBitmap = Bitmap.createBitmap(Math.round(area.getWidth()), Math.round(area.getHeight()), Bitmap.Config.ARGB_4444);
-        }
-        return createPainter(new Canvas(this.bufferedBitmap));
-    }
-
-    public void recycleBuffer() {
-        if (this.bufferedBitmap != null && !this.bufferedBitmap.isRecycled()) {
-            this.bufferedBitmap.recycle();
-            this.bufferedBitmap = null;
-        }
-    }
 
     public TGRectangle createClientArea(Canvas canvas) {
         Rect rect = canvas.getClipBounds();
@@ -316,7 +297,6 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
             this.setPainting(true);
             this.paintBuffer(canvas);
             this.setPainting(false);
-            canvas.drawBitmap(this.bufferedBitmap, 0, 0, null);
             this.surfaceHolder.unlockCanvasAndPost(canvas);
         }
         computeScroll();
