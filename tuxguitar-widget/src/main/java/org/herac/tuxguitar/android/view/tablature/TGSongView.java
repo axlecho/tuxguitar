@@ -49,6 +49,7 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
 
     @Override
     protected void onFinishInflate() {
+        super.onFinishInflate();
         this.context = TGApplicationUtil.findContext(this);
         this.controller = TGSongViewController.getInstance(this.context);
         this.controller.setSongView(this);
@@ -61,7 +62,6 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
         // this.setZOrderOnTop(true);
         // this.getHolder().setFormat(PixelFormat.TRANSPARENT);
         // this.setBackgroundColor(Color.parseColor("#ffffffff"));
-        super.onFinishInflate();
     }
 
     public float getDefaultScale() {
@@ -114,11 +114,11 @@ public class TGSongView extends SurfaceView implements SurfaceHolder.Callback, H
     public void paintTablature(TGPainter painter, TGRectangle area) {
 
         if (this.controller.getSong() != null) {
+            this.controller.getTitlePainter().paint(painter, area, this.getPaintableScrollX(), this.getPaintableScrollY());
             float titleheight = this.controller.getTitlePainter().getTitleHeight();
             this.controller.getLayoutPainter().paint(painter, area, -this.getPaintableScrollX(), titleheight - this.getPaintableScrollY());
             this.controller.getTitlePainter().paint(painter, area, this.getPaintableScrollX(), this.getPaintableScrollY());
             this.controller.getCaret().paintCaret(this.controller.getLayout(), painter);
-
             this.controller.updateScroll(area);
 
             if (MidiPlayer.getInstance(this.context).isRunning()) {

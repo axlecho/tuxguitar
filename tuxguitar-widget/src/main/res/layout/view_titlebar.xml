@@ -2,16 +2,15 @@
 <org.herac.tuxguitar.android.titlebar.Titlebar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:orientation="vertical">
+    android:background="@android:color/transparent">
 
     <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/activity_margin"
         android:src="@drawable/ic_arrow_back" />
 
     <ImageButton
@@ -19,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/activity_margin"
         android:src="@drawable/ic_screen_rotation_grey" />
 </org.herac.tuxguitar.android.titlebar.Titlebar>

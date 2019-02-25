@@ -1,22 +1,15 @@
 package org.herac.tuxguitar.android.view.tablature;
 
-import org.herac.tuxguitar.android.TuxGuitar;
 import org.herac.tuxguitar.android.action.impl.caret.TGMoveToAxisPositionAction;
-import org.herac.tuxguitar.android.action.impl.gui.TGFullScreenAction;
 import org.herac.tuxguitar.android.action.impl.transport.TGSetLoopAction;
-import org.herac.tuxguitar.android.activity.TGActivityController;
 import org.herac.tuxguitar.android.application.TGApplicationUtil;
-import org.herac.tuxguitar.android.util.MidiTickUtil;
 import org.herac.tuxguitar.editor.action.TGActionProcessor;
-import org.herac.tuxguitar.player.base.MidiPlayer;
-import org.herac.tuxguitar.song.models.TGMeasureHeader;
 
 import android.content.Context;
-import android.support.v4.view.GestureDetectorCompat;
-import android.util.Log;
+import androidx.core.view.GestureDetectorCompat;
+
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.widget.Scroller;
 
 public class TGSongViewGestureDetector extends GestureDetector.SimpleOnGestureListener {
 

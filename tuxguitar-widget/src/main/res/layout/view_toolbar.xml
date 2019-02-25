@@ -6,24 +6,23 @@
     android:layout_height="@dimen/toolbar_height"
     android:background="@color/lightest"
     android:gravity="center_vertical"
-    android:paddingEnd="@dimen/activity_horizontal_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingStart="@dimen/activity_horizontal_margin">
+    android:paddingStart="@dimen/activity_margin"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingEnd="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
 
     <org.herac.tuxguitar.android.toolbar.TextImageView
         android:id="@+id/toolbar_tracks"
         android:layout_width="@dimen/toolbar_icon_width"
         android:layout_height="@dimen/toolbar_icon_height"
         android:layout_marginEnd="@dimen/toolbar_icon_margin"
-        android:layout_marginRight="@dimen/toolbar_icon_margin"
         android:contentDescription="@string/toolbar_tracks_dlg_title"
         android:focusable="true"
         android:gravity="center"
         android:paddingTop="@dimen/toolbar_icon_padding"
         android:text="@string/toolbar_tracks_dlg_title"
         android:textColor="@color/toolbar_normal_color_selector"
-        android:textSize="@dimen/toolbar_contentdescription"
+        android:textSize="@dimen/toolbar_content_description"
         app:src="@drawable/ic_track"
         app:src_color="@color/toolbar_normal_color_selector"
         app:src_size="@dimen/toolbar_sub_icon_size" />
@@ -42,7 +41,7 @@
         android:padding="@dimen/toolbar_icon_padding"
         android:text="@string/toolbar_playrate_dlg_title"
         android:textColor="@color/toolbar_normal_color_selector"
-        android:textSize="@dimen/toolbar_contentdescription"
+        android:textSize="@dimen/toolbar_content_description"
         app:src="@drawable/ic_playrate"
         app:src_color="@color/toolbar_normal_color_selector"
         app:src_size="@dimen/toolbar_sub_icon_size" />
@@ -60,10 +59,10 @@
         android:padding="@dimen/toolbar_icon_padding"
         android:text="@string/action_settings"
         android:textColor="@color/toolbar_normal_color_selector"
-        android:textSize="@dimen/toolbar_contentdescription"
+        android:textSize="@dimen/toolbar_content_description"
         app:src="@drawable/ic_settings"
         app:src_color="@color/toolbar_normal_color_selector"
-        app:src_size= "@dimen/toolbar_sub_icon_size" />
+        app:src_size="@dimen/toolbar_sub_icon_size" />
 
     <org.herac.tuxguitar.android.toolbar.TextImageView
         android:id="@+id/toolbar_timer"
@@ -78,7 +77,7 @@
         android:padding="@dimen/toolbar_icon_padding"
         android:text="@string/action_timer"
         android:textColor="@color/toolbar_normal_color_selector"
-        android:textSize="@dimen/toolbar_contentdescription"
+        android:textSize="@dimen/toolbar_content_description"
         app:src="@drawable/ic_timer"
         app:src_color="@color/toolbar_normal_color_selector"
         app:src_size="@dimen/toolbar_sub_icon_size" />
@@ -96,7 +95,7 @@
         android:padding="@dimen/toolbar_icon_padding"
         android:text="@string/action_metronome"
         android:textColor="@color/toolbar_normal_color_selector"
-        android:textSize="@dimen/toolbar_contentdescription"
+        android:textSize="@dimen/toolbar_content_description"
         app:src="@drawable/ic_metronome"
         app:src_color="@color/toolbar_normal_color_selector"
         app:src_size="@dimen/toolbar_sub_icon_size" />

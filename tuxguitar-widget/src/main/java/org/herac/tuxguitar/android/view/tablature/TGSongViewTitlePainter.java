@@ -1,8 +1,10 @@
 package org.herac.tuxguitar.android.view.tablature;
 
+import android.util.Log;
+
+import org.herac.tuxguitar.android.R;
 import org.herac.tuxguitar.android.activity.TGActivityController;
 import org.herac.tuxguitar.android.graphics.TGFontImpl;
-import org.herac.tuxguitar.graphics.TGColorModel;
 import org.herac.tuxguitar.graphics.TGFontModel;
 import org.herac.tuxguitar.graphics.TGPainter;
 import org.herac.tuxguitar.graphics.TGRectangle;
@@ -12,7 +14,8 @@ import org.herac.tuxguitar.song.models.TGTrack;
 import java.util.List;
 
 public class TGSongViewTitlePainter {
-    private static final float TITLE_HEIGHT = 240.0f;
+    private static float TITLE_HEIGHT = 0f;
+    private float keyline = 16f;
     private static final String[] KEY_NAMES = new String[]{
             "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
     };
@@ -28,46 +31,29 @@ public class TGSongViewTitlePainter {
     }
 
     public void paint(TGPainter target, TGRectangle clientArea, float fromX, float fromY) {
+        this.keyline = controller.findContext().getResources().getDimension(R.dimen.key_line);
         if (fromY > TITLE_HEIGHT) {
             return;
         }
-        TGFontModel tgFontModel = new TGFontModel();
-        tgFontModel.setHeight(36);
-        tgFontModel.setBold(true);
-        tgFontModel.setItalic(false);
-        target.setFont(new TGFontImpl(tgFontModel));
-        target.setAlpha(180);
-        target.setForeground(target.createColor(new TGColorModel(0x33, 0x33, 0x33)));
-        this.paintTitle(target, clientArea, clientArea.getWidth() / 2.0f, this.TITLE_HEIGHT / 4.0f - fromY);
 
-        tgFontModel.setHeight(24);
-        tgFontModel.setBold(false);
-        tgFontModel.setItalic(true);
-        target.setFont(new TGFontImpl(tgFontModel));
-        this.paintTurning(target, clientArea.getWidth() / 28.0f, this.TITLE_HEIGHT / 4.0f * 2.8f - fromY);
+        this.paintTitle(target, clientArea, clientArea.getWidth() / 2.0f, this.keyline * 2 - fromY);
+        this.paintTurning(target, this.keyline * 2, this.keyline + target.getFMHeight() + this.keyline * 2 - fromY);
     }
 
     public float getTitleHeight() {
         return TITLE_HEIGHT;
     }
 
+
     private void paintTitle(TGPainter target, TGRectangle clientArea, float x, float y) {
-        TGCaret caret = TGSongViewController.getInstance(controller.getContext()).getCaret();
-        CharSequence activityTitle = TGActivityController.getInstance(controller.getContext()).getActivity().getTitle();
-        String title;
+        float maxWidth = clientArea.getWidth() / 4.0f * 2.5f;
+        String title = this.getTitle();
+        TGFontModel tgFontModel = new TGFontModel();
+        tgFontModel.setHeight(48);
+        tgFontModel.setBold(true);
+        tgFontModel.setItalic(false);
+        target.setFont(new TGFontImpl(tgFontModel));
 
-        if (activityTitle == null) {
-            title = "（无标题）";
-        } else {
-            title = activityTitle.toString();
-        }
-
-        float maxwidth = clientArea.getWidth() / 4.0f * 2.5f;
-        this.painTitle(target, maxwidth, title, x, y);
-
-    }
-
-    private void painTitle(TGPainter target, float maxWidth, String title, float x, float y) {
         if (target.getFMWidth(title) > maxWidth) {
             for (int i = 0; i < title.length(); ++i) {
                 String thisLine = title.substring(0, i);
@@ -89,13 +75,34 @@ public class TGSongViewTitlePainter {
         }
     }
 
-
     private void paintTurning(TGPainter target, float x, float y) {
+        TGFontModel tgFontModel = new TGFontModel();
+        tgFontModel.setHeight(24);
+        tgFontModel.setBold(false);
+        tgFontModel.setItalic(false);
+        target.setFont(new TGFontImpl(tgFontModel));
+
+        for (String line : getKey().split("\n")) {
+            target.drawString(line, x, y);
+            if (TITLE_HEIGHT < y + keyline) {
+                TITLE_HEIGHT = y + keyline;
+            }
+            y += target.getFMHeight() + keyline / 2;
+        }
+    }
+
+
+    private String getTitle() {
+        CharSequence activityTitle = TGActivityController.getInstance(controller.getContext()).getActivity().getTitle();
+        return activityTitle == null ? "（无标题）" : activityTitle.toString();
+    }
+
+    private String getKey() {
         TGCaret caret = TGSongViewController.getInstance(controller.getContext()).getCaret();
         TGTrack track = caret.getTrack();
         List<TGString> strings = track.getStrings();
 
-        String key = "";
+        String key;
         if (isStandKey(strings)) {
             key = "标准调弦";
         } else {
@@ -106,10 +113,7 @@ public class TGSongViewTitlePainter {
             key = "capo=" + track.getOffset() + "\n" + key;
         }
 
-        for (String line : key.split("\n")) {
-            target.drawString(line, x, y);
-            y += target.getFMHeight() + 8;
-        }
+        return key;
     }
 
     private boolean isStandKey(List<TGString> strings) {
@@ -166,6 +170,4 @@ public class TGSongViewTitlePainter {
     private String getNoteNameByPos(int i) {
         return KEY_NAMES[(i - ((i / MAX_NOTES) * MAX_NOTES))];
     }
-
-
 }
